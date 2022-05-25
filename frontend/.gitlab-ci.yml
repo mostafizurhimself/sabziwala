@@ -1,0 +1,14 @@
+before_script:
+  - echo "Before script"
+  - cd /var/www/html/client/sabziwala-website/
+building:
+  stage: build
+  script:
+    - echo "Build Stage"
+    - git stash
+    - git pull
+    - npm install
+    - npm run build
+    - pm2 reload Sabziwala --force
+  only:
+    - master

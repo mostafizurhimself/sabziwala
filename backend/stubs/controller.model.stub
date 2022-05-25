@@ -1,0 +1,114 @@
+<?php
+
+namespace {{ namespace }};
+
+use {{ namespacedModel }};
+use {{ rootNamespace }}Http\Controllers\Controller;
+use Illuminate\Http\Request;
+
+class {{ class }} extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        if (request()->user()->cannot('viewAny', {{ model }}::class)) {
+            abort(403);
+        }
+
+        // Start from here ...
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        if (request()->user()->cannot('create', {{ model }}::class)) {
+            abort(403);
+        }
+
+        // Start from here ...
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        if (request()->user()->cannot('create', {{ model }}::class)) {
+            abort(403);
+        }
+
+        // Start from here ...
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \{{ namespacedModel }}  ${{ modelVariable }}
+     * @return \Illuminate\Http\Response
+     */
+    public function show({{ model }} ${{ modelVariable }})
+    {
+        if (request()->user()->cannot('view', ${{ modelVariable }})) {
+            abort(403);
+        }
+
+        // Start from here ...
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \{{ namespacedModel }}  ${{ modelVariable }}
+     * @return \Illuminate\Http\Response
+     */
+    public function edit({{ model }} ${{ modelVariable }})
+    {
+         if (request()->user()->cannot('update', ${{ modelVariable }})) {
+            abort(403);
+        }
+
+        // Start from here ...
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \{{ namespacedModel }}  ${{ modelVariable }}
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, {{ model }} ${{ modelVariable }})
+    {
+         if (request()->user()->cannot('update', ${{ modelVariable }})) {
+            abort(403);
+        }
+
+        // Start from here ...
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \{{ namespacedModel }}  ${{ modelVariable }}
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy({{ model }} ${{ modelVariable }})
+    {
+         if (request()->user()->cannot('delete', ${{ modelVariable }})) {
+            abort(403);
+        }
+
+        // Start from here ...
+    }
+}

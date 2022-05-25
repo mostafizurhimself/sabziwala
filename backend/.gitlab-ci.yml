@@ -1,0 +1,21 @@
+before_script:
+  - echo "Before script"
+  - cd /var/www/html/client/sabziwala-admin/
+building:
+  stage: build
+  script:
+    - echo "Build Stage"
+    - whoami
+    - git stash
+    - git pull
+    - composer install --no-scripts --no-interaction
+    - php artisan migrate --force
+    - php artisan product:publish
+    - php artisan db:seed --class=RolesAndPermissionsSeeder --force
+    - php artisan cache:clear
+    - php artisan config:clear
+    - npm install
+    - npm run prod
+  only:
+    - master
+

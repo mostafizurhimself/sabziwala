@@ -1,0 +1,27 @@
+@import "themify";
+@import "font";
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Poppins", sans-serif !important;
+    font-weight: 400 !important;
+}
+
+table {
+    @apply w-full divide-y divide-gray-200;
+
+    thead {
+        @apply bg-white;
+
+        th {
+            @apply px-6 py-5 text-left text-sm text-black uppercase font-bold;
+        }
+    }
+
+    tbody {
+        @apply bg-white divide-y divide-gray-200;
+
+        td {
+            @apply px-6 py-4 whitespace-nowrap;
+        }
+    }
+}
