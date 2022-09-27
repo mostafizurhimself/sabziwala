@@ -2,7 +2,7 @@
 
 **Website**: https://sabziwala.mostafizur.dev/
 
-**Admin**: https://sabziwala-admin.bdlancers.com
+**Admin**: https://sabziwala-admin.mostafizur.dev
 
 **User**: admin@example.com **Password**: 111111
 
